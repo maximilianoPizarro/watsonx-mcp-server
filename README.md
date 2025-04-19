@@ -1,5 +1,5 @@
 # Building a Watsonx.ai Chatbot Server with MCP in Python
-![](assets/2025-04-19-14-00-05.png)
+![](assets/mcp.gif)
 In this in-depth tutorial, you’ll learn how to create a professional, production‑ready chatbot server powered by IBM Watsonx.ai and exposed via the Model Context Protocol (MCP) Python SDK. By the end, you’ll have a reusable MCP service that any MCP‑compatible client (e.g., Claude Desktop, custom Python clients) can invoke as a standardized “chat” tool.
 
 We’ll walk through:
