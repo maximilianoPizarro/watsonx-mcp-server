@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Medical Chatbot – Symptoms{% endblock %}
+{% block content %}
+  <div class="bg-white bg-opacity-80 p-8 rounded shadow-md w-full max-w-md">
+    <h2 class="text-xl mb-4">{{ greeting }}</h2>
+    <form method="post">
+      <label class="block mb-2">Please describe your symptoms:</label>
+      <textarea name="symptoms" rows="4" required
+                class="w-full p-2 border rounded mb-4"
+                placeholder="Headache, fever, coughing..."></textarea>
+      <button type="submit"
+              class="w-full bg-green-500 text-white py-2 rounded">
+        Get Assessment
+      </button>
+    </form>
+  </div>
+{% endblock %}

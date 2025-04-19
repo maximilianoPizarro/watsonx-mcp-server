@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Medical Chatbot – Assessment{% endblock %}
+{% block content %}
+  <div class="bg-white bg-opacity-80 p-8 rounded shadow-md w-full max-w-lg whitespace-pre-wrap">
+    <h2 class="text-xl mb-4 font-bold">Assessment & Recommendations</h2>
+    {{ diagnosis }}
+    <div class="mt-6">
+      <a 
+        href="{{ url_for('home') }}" 
+        class="w-full block bg-blue-500 text-white py-2 rounded text-center"
+      >
+        Start Over
+      </a>
+    </div>
+  </div>
+{% endblock %}
