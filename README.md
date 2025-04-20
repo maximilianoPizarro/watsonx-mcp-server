@@ -325,7 +325,7 @@ What is watsonx in IBM?
 ![](assets/2025-04-18-14-35-39.png)
 
 
-Here's the corrected English and Markdown formatting for your text:
+
 
 ## Prompt via the MCP Inspector
 
