@@ -14,13 +14,15 @@ components:
 - name: udi
   container:
     image: quay.io/devfile/universal-developer-image:ubi8-latest
-    ports:
-      - containerPort: 6277 # Proxy Server
+    endpoints:
+      - exposure: public
         name: mcp-proxy
-        protocol: TCP
-      - containerPort: 6274 # Inspector UI
+        protocol: tcp
+        targetPort: 6277
+      - exposure: public
         name: mcp-inspector
-        protocol: TCP
+        protocol: tcp
+        targetPort: 6274
     env:
       - name: HOST
         value: "0.0.0.0"
