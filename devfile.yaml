@@ -14,6 +14,18 @@ components:
 - name: udi
   container:
     image: quay.io/devfile/universal-developer-image:ubi8-latest
+    ports:
+      - containerPort: 6277 # Proxy Server
+        name: mcp-proxy
+        protocol: TCP
+      - containerPort: 6274 # Inspector UI
+        name: mcp-inspector
+        protocol: TCP
+    env:
+      - name: HOST
+        value: "0.0.0.0"
+      - name: DANGEROUSLY_OMIT_AUTH
+        value: "true"
     memoryLimit: 4Gi
     memoryRequest: 2Gi
     cpuLimit: 4000m
@@ -25,10 +37,14 @@ commands:
     exec:
       component: udi
       commandLine: "pip install --upgrade pip && pip install pipenv && pipenv --python /usr/bin/python3.11 && pipenv install"
-  - id: 1-run-server
+  - id: 1-run-dev-server
     exec:
       component: udi
       commandLine: "pipenv run mcp dev server.py"
+  - id: 2-run-prod-server
+    exec:
+      component: udi
+      commandLine: "pipenv run mcp run server.py"
   - id: 2-run-chatbot
     exec:
       component: udi
