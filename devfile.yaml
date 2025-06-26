@@ -1,0 +1,35 @@
+schemaVersion: 2.3.0
+metadata:
+  generateName: watsonx-mcp-server
+attributes:
+  controller.devfile.io/storage-type: ephemeral
+projects:
+  - name: watsonx-mcp-server
+    git:
+      remotes:
+        origin: 'https://github.com/maximilianoPizarro/watsonx-mcp-server'
+      checkoutFrom:
+        revision: master
+components:
+- name: udi
+  container:
+    image: quay.io/devfile/universal-developer-image:ubi8-latest
+    memoryLimit: 4Gi
+    memoryRequest: 2Gi
+    cpuLimit: 4000m
+    cpuRequest: 1000m
+    mountSources: true
+    sourceMapping: /projects
+commands:
+  - id: install
+    exec:
+      component: udi
+      commandLine: "pip install --upgrade pip && pip install pipenv && pipenv shell && pipenv install"
+  - id: run-server
+    exec:
+      component: udi
+      commandLine: "pipenv run python server.py"
+  - id: run-chatbot
+    exec:
+      component: udi
+      commandLine: "pipenv run python chatbot.py"
