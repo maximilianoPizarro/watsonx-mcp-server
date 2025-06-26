@@ -17,11 +17,11 @@ components:
     endpoints:
       - exposure: public
         name: mcp-proxy
-        protocol: tcp
+        protocol: https
         targetPort: 6277
       - exposure: public
         name: mcp-inspector
-        protocol: tcp
+        protocol: https
         targetPort: 6274
     env:
       - name: HOST
