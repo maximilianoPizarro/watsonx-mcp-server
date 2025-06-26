@@ -21,15 +21,15 @@ components:
     mountSources: true
     sourceMapping: /projects
 commands:
-  - id: install
+  - id: install-0
     exec:
       component: udi
-      commandLine: "pip install --upgrade pip && pip install pipenv && pipenv shell && pipenv install"
-  - id: run-server
+      commandLine: "pip install --upgrade pip && pip install pipenv && pipenv --python /usr/bin/python3.11 && pipenv shell && pipenv install"
+  - id: run-server-1
     exec:
       component: udi
-      commandLine: "pipenv run python server.py"
-  - id: run-chatbot
+      commandLine: "pipenv run mcp dev server.py"
+  - id: run-chatbot-2
     exec:
       component: udi
       commandLine: "pipenv run python chatbot.py"
